@@ -3,13 +3,6 @@ jobs:
   dist: xenial
   os: linux
   language: java
-  stages:
-    - build
-    - test
   jdk:
     - openjdk10
     - openjdk8
-  - stage: build
-    script: ./gradelw build
-  - stage: test
-    script: ./gradelw test
