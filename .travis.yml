@@ -1,8 +1,8 @@
-jobs:
-  include:
-  dist: xenial
-  os: linux
-  language: java
-  jdk:
-    - openjdk10
-    - openjdk8
+dist: xenial
+os: linux
+language: java
+jdk:
+  - openjdk10
+  - openjdk8
+script:
+  - ./gradelw build
