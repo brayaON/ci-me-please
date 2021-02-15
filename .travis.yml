@@ -1,0 +1,12 @@
+jobs:
+  include:
+  dist: xenial
+  os: linux
+  language: java
+  jdk:
+    - openjdk10
+    - openjdk8
+  - stage: build
+    script: ./gradelw build
+  - stage: test
+    script: ./gradelw test
