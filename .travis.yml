@@ -2,18 +2,19 @@ dist: xenial
 os: linux
 language: java
 jdk:
-  - openjdk10
-  - openjdk8
-
+- openjdk10
+- openjdk8
+env:
 jobs:
   include:
-  - stage: "Test"
-    script: ./gradlew test
-  - stage: "Build"
-    script: ./gradlew build
-  - stage: "Deploy"
+  - stage: Test
+    script: "./gradlew test"
+  - stage: Build
+    script: "./gradlew build"
+  - stage: Deploy
     deploy:
       provider: heroku
-      api_key: 3363d0de-66f8-46c5-b90b-002fb6172647
-      app: ci-me-please-brayaon 
+      api_key:
+        secure: AWIGjJ7CFn4TKJ5Dl/zCTMQxYdvVlbprsS4cgWKxgKTBzOAKqZd8kBMOlMYzT6MTq5ufPy4hZkStkFiwFcywgzaWBIexPmvfO0HQvyKuHHHkAE2jeAN1zvlZw8X8rcquNuezNiIk3aGOxg3Vwb7N0o/xsIkvNotHyov2wqe0OHgJ4ZdZbthHgsc/M+fXMXHsb/Z9IBrdG7/j2Z9lYWg7Ziq/BB+OBy5vDPNVPY69mCb5k+4Xq0HDA8J3van4KhN3IGSdToarAxoPYn7Cs9dRsb6udMo9YV1lpsTpVY59U9k30/pvZcHO/HjAtIgBrvQ+AOC/l9N9Z0SdER+epPFTJClHieuI475OMl4YTbYOCjg9HY9TSwz9IZdAtvXg6UcMNdOY8zUImHVoSrGgPH2IG4FnobC+97FD+ccGYRPKdbF+q7SmMyCZtmD73UnZ81oYT3wJsGu41iLei2rykQUrbRkvkVopEAop3iHmCJ8WvjK+xtNdYO5HeMwsHqH2zFxDU91YLES6KJ0AuhUflpq1UX4ORpzdgCsrSpehtkY+lUws1TAneSqi8UNuwJKVUlqeglS4CvbsQSeas1UVD5/1SNNBf+UPyAWRuAwrtuZweVoq4758NO4sNlRaMLDPsUmPvPA6lInxiWFLon9i3tSaPqJ5dd66ONxm+p3Tibm0IU8=
+      app: ci-me-please-brayaon
       on: main
