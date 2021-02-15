@@ -9,5 +9,5 @@ script:
 
 jobs:
   include:
-  - stage: test
-    script:  
+  - stage: "Tests"
+    script: ./gradlew test
