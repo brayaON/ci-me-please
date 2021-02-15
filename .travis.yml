@@ -4,10 +4,16 @@ language: java
 jdk:
   - openjdk10
   - openjdk8
-script:
-  - ./gradlew build
 
 jobs:
   include:
-  - stage: "Tests"
+  - stage: "Test"
     script: ./gradlew test
+  - stage: "Build"
+    script: ./gradlew build
+  - stage: "Deploy"
+    deploy:
+      provider: heroku
+      api_key: 3363d0de-66f8-46c5-b90b-002fb6172647
+      app: ci-me-please-brayaon 
+      on: main
