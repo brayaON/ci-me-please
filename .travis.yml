@@ -5,7 +5,8 @@ jdk:
 - openjdk10
 - openjdk8
 notifications:
-  slack: praxisunal:yAxYwLHSyRC9Zi8uMckokqQW
+  slack: 
+    rooms: praxisunal:yAxYwLHSyRC9Zi8uMckokqQW
     on_success: always
     on_failure: always
 jobs:
