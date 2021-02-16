@@ -20,5 +20,5 @@ jobs:
       api_key:
         secure: TmnwZvTmJftEkiKXjV05lkrJCspbatqtkc9q7g3NrguDztTkZZ6eu6tUc8JpRBn+shtC9I8FMP0hAU8vqp8lX79dw7uJR+FOSGmu6RGP6ICy8yLoaTYv+ZHE+S0yfZezhHMYvWTWutpBH8qTpUoAg6UBeSpys9LFxTFtIiPqgMWm1nYFWKZGAYYd44gQmItf8K891urk11Nwx+VdedVW8raHfVodULl8FkjxwrZIc53gm6DJpVdgG8zAvoYFZSYkXmSeiIxfxcnMftoBSIZznODVGxPaqfT5p85XxasGDvb1VBPjMECoilq1F9rS0nCxXZlwJP5mFaMPsUJbPo3/zopP/P3rNxivoiRW7k548EnV/5j+Ir/MiaRXl9B5tpset8MEwu+kav3PGa+qCWWH1jNqqRqpgaaUCT2KLHRMieShTn2vtoXtFoIJYwtzwhzj0bIk52jWCwhtc6ywHP3CpySO7g7KpXgQ9+CqFZ6D/E7nWmjUqfEGjRTFZ8LfhyFHBIjwHAWyn4y1+dWmNzE6sIt9Cryv5Gzn1rupxNvRubh2bYRlkXxcQUXE13D/ttTD+Qvh+rtOSMNtHh87zIjeOAcGo3fthCEaJj3Mn/oYHBFf+dKQXG4dCWm7+waueGehsDcuAFUXVRYWRd260OSpp+cBvMuH0ME+VBy6jdIKRCU=
       app: ci-me-please-brayaon
-      skip_cleanup: true
       on: main
+      strategy: git
