@@ -5,10 +5,9 @@ jdk:
 - openjdk10
 - openjdk8
 notifications:
-  slack: 
-    rooms: praxisunal:yAxYwLHSyRC9Zi8uMckokqQW
-    on_success: always
-    on_failure: always
+  slack:
+    rooms:
+      secure: kbXVcHaDKjvblmrbb0LX1Gg98ml2Gi24bmuF24X9Dq85aB0SXMliENcRu0q5OWWqVaqJP/VpCth8wMGDOLsMUiVgNakc+6dGh21YfQ36cFPW/tc9l/UNdNb6vNw636vjMrt0hTE1uqXWBBUom1NOFGHHWMrQUw+t7XvEv5Cu1K8pH3hc5SKdjdiGlKJ52vLJreRHXwYnJh5RDsuxTmwxAHXPNeNG1f31J6EFqQcxk9c31qg4DiO2s4v+pjPkMdwA5OZKmpJsdhFA7jXHoFsJm48mupIhx6rwU29QZfje7/LvM4+CNTKVA5SmwspHYJFDjJmT5ryOpdminNx9UxfhhDSFzXXJTlvy1AespgmYvKBfmDQetnOh4M42H/Lt1By6qV10TC6zQobdnxl/+CMXq2Ehu6vUksf+qMDicG0q5q+hAsoaP1mH6f7ZAuT0WybmeaUeTDVqMn8qaJEQnbayLeXyDhAGUSLfkYuTZaV4eWiq12Svt5/wJFsuUiE08DWxqhJu+nemEwa3hhkAwUGyPF86zi+X9NmGpg/K3nWAHZqPsL+wNxmO06KHaGFYQxzDJ9Du8+krS0+B5A7f+hCUi10WaAMBg4r7OZPkmxcrgEvbAntZqtb0Ror+6OZZ7gjwIG7zZd8/qe2VVekiOGnFWRVwD7w1Rae9tiHk947bPuI=
 jobs:
   include:
   - stage: Test
@@ -18,7 +17,8 @@ jobs:
   - stage: Deploy
     deploy:
       provider: heroku
-      api_key: $HEROKU_API_KEY
+      api_key:
+        secure: TmnwZvTmJftEkiKXjV05lkrJCspbatqtkc9q7g3NrguDztTkZZ6eu6tUc8JpRBn+shtC9I8FMP0hAU8vqp8lX79dw7uJR+FOSGmu6RGP6ICy8yLoaTYv+ZHE+S0yfZezhHMYvWTWutpBH8qTpUoAg6UBeSpys9LFxTFtIiPqgMWm1nYFWKZGAYYd44gQmItf8K891urk11Nwx+VdedVW8raHfVodULl8FkjxwrZIc53gm6DJpVdgG8zAvoYFZSYkXmSeiIxfxcnMftoBSIZznODVGxPaqfT5p85XxasGDvb1VBPjMECoilq1F9rS0nCxXZlwJP5mFaMPsUJbPo3/zopP/P3rNxivoiRW7k548EnV/5j+Ir/MiaRXl9B5tpset8MEwu+kav3PGa+qCWWH1jNqqRqpgaaUCT2KLHRMieShTn2vtoXtFoIJYwtzwhzj0bIk52jWCwhtc6ywHP3CpySO7g7KpXgQ9+CqFZ6D/E7nWmjUqfEGjRTFZ8LfhyFHBIjwHAWyn4y1+dWmNzE6sIt9Cryv5Gzn1rupxNvRubh2bYRlkXxcQUXE13D/ttTD+Qvh+rtOSMNtHh87zIjeOAcGo3fthCEaJj3Mn/oYHBFf+dKQXG4dCWm7+waueGehsDcuAFUXVRYWRd260OSpp+cBvMuH0ME+VBy6jdIKRCU=
       app: ci-me-please-brayaon
       skip_cleanup: true
       on: main
