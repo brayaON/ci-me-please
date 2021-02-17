@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/brayaON/ci-me-please.svg?branch=main)](https://travis-ci.com/brayaON/ci-me-please)
-
 # ci-me-please
 Sample Gradle app for learning CI
+
+[![Build Status](https://travis-ci.com/brayaON/ci-me-please.svg?branch=main)](https://travis-ci.com/brayaON/ci-me-please)
 
 # :page_with_curl: Instructions
 ### Testing the app
