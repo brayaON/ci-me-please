@@ -1,25 +1,30 @@
 dist: xenial
 os: linux
 language: java
-
 notifications:
   slack:
     rooms:
       secure: kbXVcHaDKjvblmrbb0LX1Gg98ml2Gi24bmuF24X9Dq85aB0SXMliENcRu0q5OWWqVaqJP/VpCth8wMGDOLsMUiVgNakc+6dGh21YfQ36cFPW/tc9l/UNdNb6vNw636vjMrt0hTE1uqXWBBUom1NOFGHHWMrQUw+t7XvEv5Cu1K8pH3hc5SKdjdiGlKJ52vLJreRHXwYnJh5RDsuxTmwxAHXPNeNG1f31J6EFqQcxk9c31qg4DiO2s4v+pjPkMdwA5OZKmpJsdhFA7jXHoFsJm48mupIhx6rwU29QZfje7/LvM4+CNTKVA5SmwspHYJFDjJmT5ryOpdminNx9UxfhhDSFzXXJTlvy1AespgmYvKBfmDQetnOh4M42H/Lt1By6qV10TC6zQobdnxl/+CMXq2Ehu6vUksf+qMDicG0q5q+hAsoaP1mH6f7ZAuT0WybmeaUeTDVqMn8qaJEQnbayLeXyDhAGUSLfkYuTZaV4eWiq12Svt5/wJFsuUiE08DWxqhJu+nemEwa3hhkAwUGyPF86zi+X9NmGpg/K3nWAHZqPsL+wNxmO06KHaGFYQxzDJ9Du8+krS0+B5A7f+hCUi10WaAMBg4r7OZPkmxcrgEvbAntZqtb0Ror+6OZZ7gjwIG7zZd8/qe2VVekiOGnFWRVwD7w1Rae9tiHk947bPuI=
+env:
+  global:
+  - secure: HKCmz62Vmln6YYeXDqrCUo9U5NH7yVLPxIhQEuw1ZoRF/ip1R1XApn7c56q+qLJLFWzmKXQgzRLqI+6efACrq6OeasZ4ScrjAcIpEapt8X0YySzzfUCneQ9apALVumj3MY7yo8omJHJS229KiqGb+jpCTNpW7x6XthQVWiP6YFdAF0DWVxJ34wJ2BIcRObnY7l0WCFEDQGK263YYh5Gfkj3kLWEhvIN8ij0NMWzf+RwVrOZfBvoQDqBQnlv4CH3lOZbtEP9sDwK7V/UT9zKPhGV69jwQEYRhiXwDEmGRm3XpWRitzfHh63F9PcTsep3kidtLnuGqIfyOk0lPF5OyNCx9aIz/eV86F7kR3M4FvgZoPcizNgDo29E3jF119lgtWdisY7uhitp7eb4i7HaCdurEg0C6g5KktwyhJTsR1Dpm2nDm+aLdUO3Oe4+ZcD0CvvflkXaZJPItKyfvD7SmdgWr153PVtxltR5Xgxh2wX40N7ujr4z5T4Ormck7MTiFVfFdlkFzE9B7RxM8T3uzZqitNGHO4KdgcoFaL8SsGxzcnUrbfvsyJF0sR7V0TsbaJtgfswoS/ZGywkSPJNVeVk87Fdw4bO1npliJTam1TAd88nZY8l1M+DKwS/r2ip5+3GnR31u8AJjpotvIByiOhDZBobwLZJhemLVimOxRjXE=
+  - secure: Cy+9ZxYGBA1442XOM0Xfwznvta1237fihX3k01hRxHosITyCrILYiD2d0PzBhTHAiqtJYTuiJ2gFlbLRUQTDNeaxjDCB8FVCTe9N1V06wk/lTGXxNojWgghb3a/XlwdV/GY0uGecetXVmJsFD6GPUncOlcGNCVLosfmzqygUQNsnlQ7V0buGLE9dWE6JSbU65JP6Y+onlKLsXdiEg1VrHuu8yfJua3XADtp+ZriUm6LCCG6VPxYe7AeUEGE6Gz54GuBR9iumNYZTtBxb1AgB0nJVwyf3WbxvsvXGcjArdIoNBGIrC24wEmnPo4mekWHrTnwTAlcTOT2x7aaLaK9Wy4LIn43Xvc8/gWhhBUYSJHkNY/bbt43MgLEMDvlzoEpHTjGeuxDvNhJzWmnslbC0EDqILPvuU/XVV/l2vf7Zhw2wm+ckCrYhCUEMiQGDyjtb8gA66/+3zeyJgHKrO2EZX5yABDIVuS45DK5nXTrsqGwCVFj8sonDQhc51VtlrrS/x+2g8t8if6dYvis7PFMSs1Y+t14IQnkY2iac3LViI9i+qYNnbGhdNM5w6+LAh1RKsV1N0Ir0kK2yOA29o8SsPLT0kmHTS47JjUgGyvJRDKxBKcoDZZ04b6Fh0G5qLR8Tl7ytJLTNE9jq3fafEltWHXTmdhavZchz7DdY3tw8xvU=
 
 services:
-  - docker
+- docker
 
 before_install:
-  - docker build -t brayaon/ci-me-please .
-  - docker ps -a
+- docker build -t brayaon/ci-me-please .
+- docker ps -a
 
 jobs:
   include:
   - stage: Build
-    script: docker run --rm -v "$PWD":/home/gradle/project -w /home/gradle/project brayaon/ci-me-please gradle build
+    script: docker run --rm -v "$PWD":/home/gradle/project -w /home/gradle/project
+      brayaon/ci-me-please gradle build
   - stage: Test
-    script: docker run --rm -v "$PWD":/home/gradle/project -w /home/gradle/project brayaon/ci-me-please gradle test
+    script: docker run --rm -v "$PWD":/home/gradle/project -w /home/gradle/project
+      brayaon/ci-me-please gradle test
   - stage: Deploy
     deploy:
       provider: heroku
@@ -28,3 +33,8 @@ jobs:
       app: ci-me-please-brayaon
       on: main
       strategy: git
+  - stage: Push Docker Image
+    script:
+    - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+    - docker images
+    - docker push brayaon/ci-me-please
