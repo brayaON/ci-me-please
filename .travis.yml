@@ -2,18 +2,27 @@ dist: xenial
 os: linux
 language: java
 jdk:
-- openjdk10
 - openjdk8
+- openjdk9
+
 notifications:
   slack:
     rooms:
       secure: kbXVcHaDKjvblmrbb0LX1Gg98ml2Gi24bmuF24X9Dq85aB0SXMliENcRu0q5OWWqVaqJP/VpCth8wMGDOLsMUiVgNakc+6dGh21YfQ36cFPW/tc9l/UNdNb6vNw636vjMrt0hTE1uqXWBBUom1NOFGHHWMrQUw+t7XvEv5Cu1K8pH3hc5SKdjdiGlKJ52vLJreRHXwYnJh5RDsuxTmwxAHXPNeNG1f31J6EFqQcxk9c31qg4DiO2s4v+pjPkMdwA5OZKmpJsdhFA7jXHoFsJm48mupIhx6rwU29QZfje7/LvM4+CNTKVA5SmwspHYJFDjJmT5ryOpdminNx9UxfhhDSFzXXJTlvy1AespgmYvKBfmDQetnOh4M42H/Lt1By6qV10TC6zQobdnxl/+CMXq2Ehu6vUksf+qMDicG0q5q+hAsoaP1mH6f7ZAuT0WybmeaUeTDVqMn8qaJEQnbayLeXyDhAGUSLfkYuTZaV4eWiq12Svt5/wJFsuUiE08DWxqhJu+nemEwa3hhkAwUGyPF86zi+X9NmGpg/K3nWAHZqPsL+wNxmO06KHaGFYQxzDJ9Du8+krS0+B5A7f+hCUi10WaAMBg4r7OZPkmxcrgEvbAntZqtb0Ror+6OZZ7gjwIG7zZd8/qe2VVekiOGnFWRVwD7w1Rae9tiHk947bPuI=
+
+services:
+  - docker
+
+before_install:
+  - docker build -t brayaon/ci-me-please .
+  - docker ps -a
+
 jobs:
   include:
-  - stage: Test
-    script: "./gradlew test"
   - stage: Build
-    script: "./gradlew build"
+    script: "docker run --rm -v "$PWD":/home/gradle/project -w /home/gradle/project brayaon/ci-me-please gradle build"
+  - stage: Test
+    script: "docker run --rm -v "$PWD":/home/gradle/project -w /home/gradle/project brayaon/ci-me-please gradle test"
   - stage: Deploy
     deploy:
       provider: heroku
